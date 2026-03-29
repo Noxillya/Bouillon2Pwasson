@@ -1,0 +1,10 @@
+asgiref==3.9.1
+beautifulsoup4==4.13.4
+chess==1.11.2
+Django==4.2.23
+django-bootstrap-v5==1.0.11
+jsonpickle==4.1.1
+soupsieve==2.7
+sqlparse==0.5.3
+tqdm==4.67.1
+typing_extensions==4.14.1

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" onclick="location.href='{% url 'index' %}'">Introduction à l'IA via les
+                    échecs</a>
+            </div>
+        </nav>
+        <div class="row mb-5"> <!-- setup the game -->
+            <div class="col-md-8">
+                <div class="row"> <!-- setup for White -->
+                    <form action="{% url 'create_game' %}" method="post">
+                        {% csrf_token %}
+                        <fieldset>
+                            <!--WHITE-->
+                            <label class="col-md-2" for="wname">BLANC</label>
+                            <input class="col-md-2" type="text" name="wname" id="wname" value="">
+                            <div class="col-md-2">
+                                <input type="radio" name="wis_ai" id="wai" value="AI" checked>
+                                <label for="wai">IA</label>
+                                <input type="radio" name="wis_ai" id="whuman" value="Joueur">
+                                <label for="whuman">Joueur</label>
+                            </div>
+                            <!--BLACK-->
+                            <label class="col-md-2" for="bname">NOIR</label>
+                            <input class="col-md-2" type="text" name="bname" id="bname" value="">
+                            <div class="col-md-2">
+                                <input type="radio" name="bis_ai" id="bai" value="AI" checked>
+                                <label for="bai">IA</label>
+                                <input type="radio" name="bis_ai" id="bhuman" value="Joueur">
+                                <label for="bhuman">Joueur</label>
+                            </div>
+                            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+                        </fieldset>
+                        <input class="btn btn-success" type="submit" value="Créer la partie">
+                    </form>
+
+                </div>
+            </div>
+            <div class="vr p-0"></div>
+            <div class="col-md-3">
+                <h4>IA existantes:</h4>
+                <ul>
+                    {% for ai in ais %}
+
+                    <li>{{ai}}</li>
+
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="row"> <!-- history of games -->
+            <h2 class="mb-3">Historique de partie:</h2>
+            <div class="col-md-8">
+                <ul>
+                    {% for game in games %}
+                    <li class="row bg-light border rounded mb-2 w-100"
+                        onclick="location.href='{% url 'review' id=forloop.counter0 move=0 %}'">
+                        <div class="col-md-2"><a>{{ game.0 }}</a></div>
+                        <div class="col-md-2"><a>VS.</a></div>
+                        <div class="col-md-2"><a>{{ game.1 }}</a></div>
+                        <div class="col-md-3 offset-2"><a>{{ game.2 }}</a></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+</body>

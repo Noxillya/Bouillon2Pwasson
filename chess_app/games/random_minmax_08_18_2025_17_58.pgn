@@ -1,0 +1,9 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "random"]
+[Black "minmax"]
+[Result "0-1"]
+
+1. c3 h5 2. Qa4 e5 3. d3 Bc5 4. Qa3 Bxa3 5. h3 Bc5 6. g4 hxg4 7. a4 gxh3 8. Bg2 a5 9. Be3 Bxe3 10. Na3 Bc5 11. Bc6 Nxc6 12. e3 h2 13. Kf1 hxg1=Q+ 14. Ke2 Qg4+ 15. Kf1 Rxh1# 0-1

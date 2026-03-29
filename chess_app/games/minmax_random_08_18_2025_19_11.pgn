@@ -1,0 +1,9 @@
+[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "minmax"]
+[Black "random"]
+[Result "1-0"]
+
+1. d4 d6 2. Bg5 Nf6 3. Bh4 Bg4 4. h3 Nd5 5. hxg4 g6 6. b3 h6 7. c3 Nc6 8. Rh3 e6 9. Bxd8 Rg8 10. c4 b6 11. cxd5 a5 12. dxc6 Rg7 13. Bxc7 h5 14. Bxb6 d5 15. gxh5 a4 16. hxg6 Ra7 17. Bxa7 Bb4+ 18. Nc3 axb3 19. Rh8+ Ke7 20. Qxb3 f5 21. Qxb4+ Kf6 22. Qf8+ Kxg6 23. Bb6 Rb7 24. cxb7 Kg5 25. b8=Q f4 26. Qbxf4+ Kg6 27. Qg8# 1-0

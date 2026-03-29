@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" onclick="location.href='{% url 'index' %}'">Introduction à l'IA via les
+                    échecs</a>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-8"> <!--the chess board-->
+                {% autoescape off %}{{ image }}{% endautoescape %}
+            </div>
+            <div class="col-md-4"> <!--the history, players and the previous/next button-->
+                <div class="row overflow-auto" style="height: 756px;"> <!--history-->
+                    <ul>
+                        {% for move in history %}
+                        <li class="row">
+                            <div class="col-md-2">{{ move.0 }} </div>
+                            <div class="col-md-4">{{ move.1 }}</div>
+                            <div class="col-md-4">{{ move.2 }}</div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="row mt-4"> <!-- players -->
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-6">BLANC: </div>
+                            <div class="col-md-6">{{white}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">NOIR: </div>
+                            <div class="col-md-6">{{black}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button class="btn btn-secondary w-100"
+                            onclick="location.href='{% url 'review' id=game_id move=prev %}'">Précédent</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-tertiary w-100"
+                            onclick="location.href='{% url 'review' id=game_id move=0 %}'">Reset</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-secondary w-100"
+                            onclick="location.href='{% url 'review' id=game_id move=next %}'">Suivant</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
